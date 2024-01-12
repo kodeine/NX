@@ -1,6 +1,7 @@
 import { AbstractEntity } from '@beyondclicksai/core';
 import {
   Entity,
+  Enum,
   Index,
   PrimaryKey,
   Property,
@@ -8,6 +9,13 @@ import {
 } from '@mikro-orm/core';
 import { Directive, Field, ID, Int, ObjectType } from '@nestjs/graphql';
 import { randomUUID } from 'crypto';
+
+export enum AccountState {
+  ACTIVE = 'A',
+  PENDING = 'P',
+  SUSPENDED = 'S',
+  DELETED = 'D',
+}
 
 @Directive(`@key(fields: "id")`)
 @ObjectType()
@@ -32,6 +40,11 @@ export class Account extends AbstractEntity {
   @Property()
   @Index()
   brandName: string;
+
+  @Index()
+  @Enum({ default: AccountState.ACTIVE })
+  @Field({ defaultValue: AccountState.ACTIVE })
+  state?: AccountState = AccountState.ACTIVE;
 
   @Field(() => Int, { defaultValue: 5 })
   @Property({ type: 'number' })
