@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/rspack-test/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/rspack:rspack",
@@ -21,7 +22,8 @@
       },
       "configurations": {
         "development": {
-          "mode": "development"
+          "mode": "development",
+          "sourceMap": false
         },
         "production": {
           "mode": "production",
@@ -59,8 +61,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
@@ -118,6 +119,5 @@
         ]
       }
     }
-  },
-  "tags": []
+  }
 }

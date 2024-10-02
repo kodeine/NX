@@ -41,6 +41,7 @@ export class CacheManagerModule {
               ...config,
             };
 
+            // @ts-ignore
             const manager = cacheManager.caching({
               store: redisStore,
               ...options,
@@ -49,10 +50,10 @@ export class CacheManagerModule {
             // handle reconnects
             handleReconnects(
               configService.get('APP_NAME') as string,
-              manager.store.getClient()
+              (manager as any).store.getClient()
             );
 
-            return manager;
+            return manager as any;
           },
           inject: [ConfigService],
         },

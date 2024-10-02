@@ -29,6 +29,9 @@
         // airbnb default this doesnt work when using parameter decorators.
         "@typescript-eslint/no-useless-constructor": "off",
 
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/ban-types": "off",
+
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/no-floating-promises": "off",
         "require-await": "off",

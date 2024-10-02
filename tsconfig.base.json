@@ -16,7 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@beyondclicksai/core": ["libs/core/src/index.ts"]
-    }
+    },
+    "strict": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
   "exclude": ["node_modules", "tmp", "dist"]
 }

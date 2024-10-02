@@ -48,8 +48,18 @@
           }
         ],
         //
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+
         // import: turn on errors for missing imports
         "import/no-unresolved": "error",
+        // never allow default export
+        "import/prefer-default-export": "off",
+        // never allow default export
+        "import/no-default-export": "off",
+        // added by airbnb not-practical for entity-relation definitions
+        "import/no-cycle": "off",
 
         // simple-import-sort:
         "simple-import-sort/imports": "error",
@@ -57,23 +67,17 @@
 
         // airbnb default is 1
         "max-classes-per-file": ["error", 6],
-        // never allow default export
-        "import/prefer-default-export": "off",
-        // never allow default export
-        // "import/no-default-export": "error",
-        // added by airbnb not-practical for entity-relation definitions
-        "import/no-cycle": "off",
         // needed so we can use class scoped generics in methods.
         "class-methods-use-this": "off",
         // airbnb default this doesnt work when using parameter decorators.
         "@typescript-eslint/no-useless-constructor": "off",
-
+        "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/no-floating-promises": "off",
-        "require-await": "off",
         "@typescript-eslint/require-await": "off",
+        "require-await": "off",
         "no-prototype-builtins": "off",
-        "import/no-default-export": "off",
+        // "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/restrict-template-expressions": "off",

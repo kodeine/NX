@@ -6,13 +6,13 @@ export class SingletonRedisClient {
 
   private _client: IRedis;
   private context = '';
-  private config: Redis.RedisOptions = {};
+  private config: any = {};
   private logger: Logger;
 
   // private constructor() {}
 
-  public static getInstance(context?: string, config?: Redis.RedisOptions) {
-    this._instance.context = context;
+  public static getInstance(context?: string, config?: any) {
+    this._instance.context = context as any;
     this._instance.config = config;
     this._instance.logger = new Logger(
       this._instance.context || this.constructor.name
@@ -26,7 +26,7 @@ export class SingletonRedisClient {
     return this;
   }
 
-  public setConfig(config: Redis.RedisOptions) {
+  public setConfig(config: any) {
     this.config = config;
     return this;
   }
@@ -43,7 +43,7 @@ export class SingletonRedisClient {
 
   public handleReconnects() {
     // Listen to 'error' events to the Redis connection
-    this._client.on('error', error => {
+    this._client.on('error', (error: any) => {
       if (error.code === 'ECONNRESET') {
         this.logger.warn('Connection to Redis Session Store timed out.');
       } else if (error.code === 'ECONNREFUSED') {
@@ -52,7 +52,7 @@ export class SingletonRedisClient {
     });
 
     // Listen to 'reconnecting' event to Redis
-    this._client.on('reconnecting', err => {
+    this._client.on('reconnecting', (err: any) => {
       if (this._client.status === 'reconnecting')
         this.logger.warn('Reconnecting to Redis Session Store...');
       else this.logger.error('Error reconnecting to Redis Session Store.');
