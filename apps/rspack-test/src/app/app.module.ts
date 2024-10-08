@@ -46,11 +46,11 @@ import * as GraphQLJSON from 'graphql-type-json';
       load: [configuration],
       isGlobal: true,
     }),
-    MikroOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => config.get('ormConfig'),
-    }),
-    MikroOrmModule.forFeature([Account, User]),
+    // MikroOrmModule.forRootAsync({
+    //   inject: [ConfigService],
+    //   useFactory: (config: ConfigService) => config.get('ormConfig'),
+    // }),
+    // MikroOrmModule.forFeature([Account, User]),
     AppHealthCheckModule,
   ],
   controllers: [AppController],
